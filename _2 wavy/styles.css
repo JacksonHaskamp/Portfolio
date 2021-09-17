@@ -32,7 +32,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #FFB4A9;
+    background-color: #92B09D;
 }
 .logo {
     cursor: pointer;
@@ -64,4 +64,73 @@ button {
 }
 button:hover {
     background-color: rgba(22,68,89,0.8);
+}
+.wave-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-top svg {
+    position: relative;
+    display: block;
+    width: calc(116% + 1.3px);
+    height: 353px;
+}
+
+.wave-top .shape-fill {
+    fill: #92B09D;
+}
+.wave2-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave2-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(116% + 1.3px);
+    height: 201px;
+}
+
+.wave2-bottom .shape-fill {
+    fill: #E84832;
+}
+
+.wave2-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave2-top svg {
+    position: relative;
+    display: block;
+    width: calc(116% + 1.3px);
+    height: 201px;
+}
+
+.wave2-top .shape-fill {
+    fill: #E84832;
+}
+.spacer {
+    aspect-ratio: 900/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.layer1 {
+    background-image: url(assets/layered-waves-haikei%20mushroom.svg);
 }
