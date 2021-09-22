@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     
-    background-color: #807F79;
+    background-color: #E37877;
 }
 li, a, button {
     font-family: "Oswald", sans-serif;
@@ -130,7 +130,35 @@ button:hover {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    
+}
+.main-content {
+    height: 100vh;
 }
 .layer1 {
-    background-image: url(assets/layered-waves-haikei%20mushroom.svg);
+    background-image: url(assets/fairymush-transparent.svg);
+    z-index: 0;
+}
+.layer2 {
+    z-index: 2;
+    
+}
+.firstname {
+    
+}
+.name-container {
+    display: flex;
+    flex-flow: row;
+}
+.fullname-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+    padding-top: 11%;
+    padding-right: 40%
+}
+.letter {
+    font-size: 89px;
+    margin: 5px 1px;
 }
