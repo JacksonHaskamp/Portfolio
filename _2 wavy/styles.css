@@ -158,6 +158,14 @@ button:hover {
     padding-top: 11%;
     padding-right: 40%
 }
+#gf-text{
+    align-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
 .letter {
     font-size: 89px;
     margin: 5px 1px;
