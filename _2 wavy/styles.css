@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     
-    background-color: #E37877;
+    background-color: rgb(247, 235, 221);
 }
 li, a, button {
     font-family: "Oswald", sans-serif;
@@ -32,7 +32,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #92B09D;
+
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+   
 }
 .logo {
     cursor: pointer;
@@ -40,11 +47,13 @@ header {
 }
 .nav-links {
     list-style: none;
+    flex-direction: column;
     
 }
 .nav-links li {
-    display: inline-block;
+    display: flex;
     padding: 0px 20px;
+    flex-direction: column;
 }
 
 .nav-links li a {
@@ -132,8 +141,13 @@ button:hover {
     background-size: cover;
     
 }
+.flex {
+    display: flex;
+    flex-direction: row;
+}
 .main-content {
     height: 100vh;
+   
 }
 .layer1 {
     background-image: url(assets/fairymush-transparent.svg);
@@ -155,18 +169,10 @@ button:hover {
     flex-flow: column;
     align-items: center;
     
-    padding-top: 11%;
-    padding-right: 40%
+
 }
-#gf-text{
-    align-content: center;
-    align-items: center;
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    
-}
+
 .letter {
-    font-size: 89px;
+    font-size: 9em;
     margin: 5px 1px;
 }
