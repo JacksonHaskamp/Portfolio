@@ -1,0 +1,113 @@
+body{
+/*               Got This gradient from here: https://cssgradient.io/gradient-backgrounds/
+                
+*/
+                background: #f12711;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            }
+            #header{
+                margin: auto;
+                width: 50%;
+                text-align: center;
+                font-size: 1.75em;
+/*                border: 1px solid black;*/
+                
+            }
+            #wrapper{
+                display: block;
+                width: 90%;
+/*                border: 1px solid black;*/
+                position: relative;
+            }
+            #textBox{
+                width: 20%;
+                height: 650px;
+                border: 1px solid black;
+                float: left;
+                padding: 5px;
+                margin-right: 20px;
+                margin-left: 20px;
+                
+                
+            }
+            .prev,
+            .next {
+              cursor: pointer;
+              position: absolute;
+              top: 40%;
+              width: auto;
+              padding: 16px;
+              margin-top: -50px;
+              color: white;
+              font-weight: bold;
+              font-size: 20px;
+              border-radius: 0 3px 3px 0;
+              user-select: none;
+              -webkit-user-select: none;
+          
+            }
+            #photoBox {
+                position: relative;
+            }
+            #gallery{
+                display: block;
+                float: left;
+/*                border: 1px solid black;*/
+                width: 60%;
+                padding: 5px;
+                height: 600px;
+/*                border: 5px solid black;*/
+                margin-top: 2vh;
+                margin-left: 3vw;
+/*
+                max-height: 100%;
+                max-width: 100%;
+*/
+                
+            }
+            .mySlides {
+                height: 100%;
+                width: 100%;
+                
+                
+            }
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                
+                display: block;
+                margin: auto;
+            }
+            img{
+              
+            }
+            .prev{
+                left: 0;
+                vertical-align: middle;
+            }
+            #photoBox{
+                position: relative;
+            }
+/*
+            #leftPointer {
+                float: left;
+            }
+            #rightPointer{
+                float: right;
+            }
+*/
+            .next {
+              right: 0;
+              border-radius: 3px 0 0 3px;
+            }
+            .prev:hover,
+            .next:hover {
+              background-color: rgba(0, 0, 0, 0.8);
+            }
+            .clearfix::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
