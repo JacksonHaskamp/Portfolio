@@ -7,6 +7,10 @@ section {
     align-items: center;
     min-height: 450px;
     padding: 100px 20vw;
+    text-align: center;
+}
+section h1 {
+    margin-bottom: 10vh;
 }
 .curve {
     position: 
@@ -134,8 +138,8 @@ button:hover {
     fill: #E84832;
 }
 .spacer {
-    aspect-ratio: 900/300;
-    width: 100%;
+    
+    width: 10%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -175,4 +179,31 @@ button:hover {
 .letter {
     font-size: 9em;
     margin: 5px 1px;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+#to-do-list-thumbnail {
+     background-image: url(assets/Todo-list-thumnail.png);
+     background-repeat: no-repeat;
+    background-size: cover;
+    width: 240px;
+    height: 250px;
+}
+#ableton-thumbnail {
+    background-image: url(assets/AbletonThumbnail.png);
+     background-repeat: no-repeat;
+    background-size: cover;
+    width: 700px;
+    height: 450px;
+    overflow: visible;
+}
+#mars-thumbnail {
+    background-image: url(assets/Mars-API-Thumbmnail.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 350px;
 }
