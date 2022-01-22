@@ -1,0 +1,76 @@
+<!-- 
+Name: Jackson Haskamp
+Pawprint: jdhvdy
+Date: 11/10/2020
+Challenge: #9 AJAX
+//Nasa API Key:V6EVLUlzFWgU9HdCYbhaROgolTiODftNoqTrFk7w
+//Example Use: https://api.nasa.gov/planetary/apod?api_key=V6EVLUlzFWgU9HdCYbhaROgolTiODftNoqTrFk7w
+-->
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Mars Exploration</title>
+<!--        <style src="style.css"></style>-->
+        <link rel="stylesheet" href="styles-mars-2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>   
+    </head>
+    <body onload="getManifest()">
+        <div id="header" class="text-center">
+            <h1>Mars Explorer</h1>
+        </div>
+        <div class="cpntainer-fluid">
+            <div id="textBox" class="text-center">
+                <form id="d" class="text-center">
+                    <span>Martian Sol:</span>
+                    <br>
+                    <input type="number" required name="solNum" id="inputSol" onchange="update_dropdown()">
+                    <br>
+                    <span>Camera:</span>
+                    <br>
+                    <select id="dropdown">
+
+                    </select>
+                    <br>
+                    <span id="loading"></span>
+                    <button onclick="getPhotos()">Query API</button>
+                    <select id="dataSelect" onchange="getRover()">
+                        <option>Curiosity</option>
+                        <option>Opportunity</option>
+                        <option>Spirit</option>
+                    </select>
+                    <div id="roverBox">
+                        
+                    </div>
+                    
+                </form>
+                 <a class="prev col" onclick="plusSlides(-1)">&#10094;</a>
+                
+                 <a class="next col" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+             
+            <div id="photoBox" class="container-fluid row">
+               
+                  
+      
+              
+             
+                <div id="gallery" class="col">
+              
+                    
+                </div>
+               
+                 
+              
+               
+                
+                
+            </div>
+        </div>
+        
+        <script src="app-mars-2.js">
+        </script>
+    </body>
+</html>
