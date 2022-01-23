@@ -208,4 +208,40 @@ button:hover {
     width: 500px;
     height: 350px;
 }
+#project-header {
+    font-size: 10vw;
+    line-height: 1em;
+    
+}
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    width: fit-content; 
+    
+/*   ticker animation codepen : https://codepen.io/lewismcarey/pen/GJZVoG */
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear
+            animation-timing-function: linear;
+
+  animation: ticker 25s linear infinite;
+    
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-108rem, 0, 0);
+  }
+}
+
 
