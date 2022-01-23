@@ -224,6 +224,9 @@ button:hover {
             animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear
             animation-timing-function: linear;
+    animation-duration: 25s;
+    animation-direction: linear;
+    animation-duration: 25s;
 
   animation: ticker 25s linear infinite;
     
@@ -241,6 +244,15 @@ html, body {
 
   100% {
     transform: translate3d(-108rem, 0, 0);
+  }
+}
+@keyframes ticker-reverse {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(108rem, 0, 0);
   }
 }
 
