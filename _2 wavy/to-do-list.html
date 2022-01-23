@@ -1,0 +1,362 @@
+<!--
+Name: Jackson Haskamp
+Pawprint: jdhvdy
+Date:9/29/2020
+Challenge: To-Do List F20
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>To-Do List</title>
+<!--        FontAwesome-->
+        <script src="https://use.fontawesome.com/5ece487485.js"></script>
+<!--        Google Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@1,700&display=swap" rel="stylesheet"> 
+        <style>
+            body{
+/*              background-image: url('white_background.png');*/
+                background-color: white;
+                font-family: 'Courier Prime', monospace;
+            }
+            .font{
+                font-family: 'Courier Prime', monospace;
+                
+            }
+            .container{
+	           width:100%;
+	           
+                padding:0;
+	           overflow: hidden;
+            }
+            #project_link{
+                color: black;
+            }
+            .left{
+                float: left;
+            }
+            .right{
+                float: right;
+            }
+            #header{
+                text-align: center;
+            }
+            #To-Do-Area{
+                height: 500px;
+                width: 600px;
+                margin-bottom: 25px;
+                background-color: lightgray;
+                
+                overflow: scroll;
+            }
+            table{
+                width: 100%;
+            }
+            
+            .center {
+                  margin: auto;
+                  width: 50%;
+                  border: 3px solid white; 
+                  padding: 10px;
+                
+             
+            }
+            th{
+                text-align: center;
+                border-bottom: 1px solid black;
+                
+            }
+            #form_ {
+                height: 100px;
+                width: 500px;
+                border: 3px solid black;
+                padding-top: 30px;
+                background-color: gray;
+                opacity: 0.8;
+            }
+            .name{
+                color: white;
+                font-size: 1.5em;
+            }
+            #titl {
+                width: 20%;
+            }
+        
+            input[type=text] {
+              width: 10%;
+              box-sizing: border-box;
+              border: 2px solid #ccc;
+                margin: 2px;
+                padding: 2px; 
+            }
+            select{
+                 border: 2px solid #ccc;  
+            }
+            input[type=range]{
+                margin: 5px;
+                margin-right: 0px;
+                width: 20%;
+            }
+            input[type=date]{
+                width: 25%
+            }
+            #submit_button{
+                margin-left: 0px;
+                margin-top: 10px;
+                width: 49%;
+               
+            }
+            #clear_button{
+                margin-left: 0px;
+                margin-top: 10px;
+                margin-right: 5px;
+                width: 49%;
+            }
+            #default{
+                
+            }
+            #toggle_button{
+                background-color: black;
+                color: white;
+                padding-top: 4px;
+            }
+            .hide{
+                visibility: hidden;
+                color: coral;
+                font-size: 1.2em;
+            }
+            .slider{
+                opacity: .8;
+               
+            }
+            .slider:hover{
+                opacity: 1;
+            }
+            .fa-star{
+                color: yellow;
+                
+            }
+            .fa-check-circle{
+                color: green;
+                
+            }
+        </style>
+        <style id="toggle_style"></style>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+			  crossorigin="anonymous">
+
+			  
+        </script>
+        
+    </head>
+    <body id="bod">
+        <div id="projects" class="container">
+            <a id="project_link" class="name left" href="index.html">
+                Back to Projects
+            </a>
+            <button id="toggle_button" class="right font" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+        </div>
+        <div class="container">
+            <h1 id="header">To-Do List</h1>
+        </div>
+<!--        overflow: scroll-->
+        <div id="To-Do-Area" class="box center">
+            <table id="table_">
+                <tr id="head">
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Priority</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                
+            </table>
+        </div>
+        <span id="error" class="hide">Error: Fill Out All Fields</span>
+        <div id="form_" class="center">
+                <form id="d">
+
+                         <input type="text" id="titl" name="title" placeholder="Title">
+                        <select name="toDoType" id="select_opt">
+                            <option selected disabled="disabled" value="Default" id="default">Select Type</option>
+                            <option value="Homework" id="homework">Homework</option>
+                            <option value="Chores" id="chores">Chores</option>
+                            <option value="Health" id="health">Health</option>
+                        </select>                   
+                    <input type="range" id="priority" class="slider" name="prio" min='0' max="5" value='3' oninput="changeInput(this.value)">
+                        <span id="range_num">3</span>
+                    <input type="date" id="date">
+                    <button id="submit_button" onclick="add_to_list()">Add to List</button>
+                    <button id="clear_button" class="right" onclick="clearForm()">Clear Form</button>
+                </form>
+            </div>
+        
+        
+        
+        <script>
+            //Function to show the Slider Value
+            function changeInput(val){
+                document.getElementById("range_num").innerHTML = val;
+            }
+            //Toggles Light/Dark Theme
+            function toggleTheme(){
+                if(document.body.style.backgroundColor == "white"){
+                    document.body.style.backgroundColor = "black";
+                    document.getElementById("project_link").style.color = "white";
+                    document.getElementById("toggle_button").innerHTML = "Theme: Light Mode";
+                    document.getElementById("header").style.color = "white";
+                    document.getElementById("toggle_button").style.color = "white";
+                    document.getElementById("toggle_button").style.backgroundColor = "black";
+                    document.getElementById("form_").style.border = "3px solid white";
+                    
+                }else{
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("project_link").style.color = "black";
+                    //document.body.style.color = "black";
+                    document.getElementById("header").style.color = "black";
+                    document.getElementById("toggle_button").innerHTML = "Theme: Dark Mode";
+                    //document.getElementById("toggle_button").style.backgroundColor = "white";
+                    document.getElementById("form_").style.border = "3px solid black";
+                }
+            }
+            //Clears The Form
+            function clearForm(){
+                document.getElementById("titl").value = '';
+                document.getElementById("select_opt").value = "Default";
+                document.getElementById("priority").value = 3;
+                document.getElementById("range_num").innerHTML = 3;
+                document.getElementById("date").value = '';
+            }
+            
+            
+            //This function is for changing the header Title of the To-Do List
+            //Help From: https://www.w3schools.com/jquery/event_dblclick.asp
+            $("#header").dblclick(function(){
+                var title = prompt("Change Title")
+                if (title != ''){
+                    document.getElementById("header").innerHTML = title;
+                }
+            });
+            
+            //Function adds the submitted values to the list if every entry is filled
+             function add_to_list(){
+                 let title = document.getElementById("titl").value;
+                 let select_opt = document.getElementById("select_opt").value;
+                 let priority = document.getElementById("priority").value;
+                 let date = document.getElementById("date").value;
+                 
+                 //Learned from TA session with Christian to check if form isnt filled out
+                 if(title == '' || select_opt == 'Default' || date == ''){
+                     document.getElementById('error').style.visibility= 'visible';
+                     clearForm();
+                     return;
+                 }
+                 //Error Checking if Date is in past
+                 //w3schools that helped:
+                 //https://www.w3schools.com/jsref/jsref_gettime.asp
+                 
+                 //And This StackOverflow Queston gave me ideas to fix 
+                 //not being able to select the current date:
+                 //https://stackoverflow.com/questions/3674539/incrementing-a-date-in-javascript
+                 
+                 console.log("date= " + date);
+                 let selected_date = new Date(date);
+                 let date_compare = selected_date.getTime();
+                 let now = new Date();
+                 let today = now.getTime();
+                 
+                 console.log("Compare Date is:"+ date_compare);
+                 //date_compare += (1000*60*60*24);
+                 console.log("Compare Date is:"+ date_compare);
+                 console.log("Today is: " + today);
+                 if(selected_date < today){
+                     document.getElementById("error").innerHTML = "Invald Input";
+                     document.getElementById('error').style.visibility= 'visible';
+                     clearForm();
+                     return;
+                 }
+                 
+                 
+                 
+                 //Learned from Christian that you can do this, and I couldn't find another way
+                 //to do the range star icons
+                 if(priority == 0){
+                     document.getElementById('table_').innerHTML +=
+                     "<tr class='added_row'><td class='td_title item'>" + title + "</td>" +
+                     "<td class='td_select_opt item'>" + select_opt + "</td>" +
+                     "<td class='td_priority item'>" + "</td>" +
+                     "<td class='td_date item'>" + date + "</td>" + 
+                     "<td class='check item'>" + "<i class='fa fa-check-circle checkmark' onclick='removeTask(this)'></i>" + 
+                         "</td></tr>"
+                 }
+                 if(priority == 1){
+                     document.getElementById('table_').innerHTML +=
+                     "<tr class='added_row'><td class='td_title item'>" + title + "</td>" +
+                     "<td class='td_select_opt item'>" + select_opt + "</td>" +
+                     "<td class='td_priority item'>" + "<i class='fa fa-star'></i>" + "</td>" +
+                     "<td class='td_date item'>" + date + "</td>" + 
+                     "<td class='check item'>" + "<i class='fa fa-check-circle checkmark' onclick='removeTask(this)'></i>" + 
+                         "</td></tr>"
+                 }
+                 if(priority == 2){
+                    document.getElementById('table_').innerHTML +=
+                     "<tr class='added_row'><td class='td_title item'>" + title + "</td>" +
+                     "<td class='td_select_opt item'>" + select_opt + "</td>" +
+                     "<td class='td_priority item'>" + "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>" + "</td>" +
+                     "<td class='td_date item'>" + date + "</td>" + 
+                     "<td class='check item'>" + "<i class='fa fa-check-circle checkmark' onclick='removeTask(this)'></i>" + 
+                         "</td></tr>"
+                 }
+                 if(priority == 3){
+                     document.getElementById('table_').innerHTML +=
+                     "<tr class='added_row'><td class='td_title item'>" + title + "</td>" +
+                     "<td class='td_select_opt item'>" + select_opt + "</td>" +
+                     "<td class='td_priority item'>" + "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>" +
+                         "<i class='fa fa-star'></i>" + "</td>" +
+                     "<td class='td_date item'>" + date + "</td>" + 
+                     "<td class='check item'>" + "<i class='fa fa-check-circle checkmark' onclick='removeTask(this)'></i>" + 
+                         "</td></tr>"
+                 }
+                 if(priority == 4){
+                      document.getElementById('table_').innerHTML +=
+                     "<tr class='added_row'><td class='td_title item'>" + title + "</td>" +
+                     "<td class='td_select_opt item'>" + select_opt + "</td>" +
+                     "<td class='td_priority item'>" + "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>" +
+                         "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>" + "</td>" +
+                     "<td class='td_date item'>" + date + "</td>" + 
+                     "<td class='check item'>" + "<i class='fa fa-check-circle checkmark' onclick='removeTask(this)'></i>" + 
+                         "</td></tr>"
+                 }
+                 if(priority == 5){
+                      document.getElementById('table_').innerHTML +=
+                     "<tr class='added_row'><td class='td_title item'>" + title + "</td>" +
+                     "<td class='td_select_opt item'>" + select_opt + "</td>" +
+                     "<td class='td_priority item'>" + "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>" +
+                         "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>"+ "<i class='fa fa-star'></i>" + "</td>" +
+                     "<td class='td_date item'>" + date + "</td>" + 
+                     "<td class='check item'>" + "<i class='fa fa-check-circle checkmark' onclick='removeTask(this)'></i>" + 
+                         "</td></tr>"
+                 }
+                 //clear form and error message
+                 document.getElementById('error').style.visibility = 'hidden';
+                 clearForm(); 
+                 
+            }
+            //Where I got the code that helped me:
+            //https://stackoverflow.com/questions/170997/what-is-the-best-way-to-remove-a-table-row-with-jquery
+            function removeTask(btn){
+               //((btn.parentNode).parentNode).removeChild((btn.parentNode).parentNode);
+                $(btn).parent().parent().remove();
+            }
+            
+            //This Function Ensures submitting the form doesn't refresh the page
+            //Christian Helped With This Function as well
+            $("#d").submit(function(e){
+                e.preventDefault();
+            });
+
+        </script>
+    </body>
+</html>
